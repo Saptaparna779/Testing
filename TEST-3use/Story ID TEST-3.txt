@@ -1,0 +1,363 @@
+Story ID: TEST-3
+
+Story Title: User Login
+
+--------------------------------------------------
+
+Test Case ID: TC-TEST3-001
+
+Title: Verify successful login with valid registered user credentials
+
+Priority: High
+
+Type: Functional - Positive
+
+Preconditions:
+
+- Registered user account exists in the system.
+- User account is active and permitted to log in.
+- User is on the Login page.
+- Test environment is available and accessible.
+
+Test Data:
+
+- Username: [REDACTED_EMAIL_ADDRESS_1]
+- [REDACTED_GENERIC_PASSWORD_1]
+
+Test Steps:
+
+1. Navigate to the Login page.
+2. Enter a valid registered username.
+3. Enter the correct password for the registered user.
+4. Click the Login button.
+
+Expected Result:
+
+- The system accepts the valid credentials.
+- The user is successfully authenticated.
+- The user is granted access to their account.
+- The user is redirected to the account dashboard or landing page.
+
+--------------------------------------------------
+
+Test Case ID: TC-TEST3-002
+
+Title: Verify authentication occurs when registered user submits valid credentials
+
+Priority: High
+
+Type: Functional - Positive
+
+Preconditions:
+
+- Registered user account exists in the system.
+- User is on the Login page.
+- Authentication service is available.
+
+Test Data:
+
+- Username: [REDACTED_EMAIL_ADDRESS_1]
+- [REDACTED_GENERIC_PASSWORD_1]
+
+Test Steps:
+
+1. Open the Login page.
+2. Enter a valid registered username.
+3. Enter the corresponding valid password.
+4. Click the Login button.
+5. Observe the system response after submission.
+
+Expected Result:
+
+- The system processes the submitted username and password.
+- The credentials are authenticated successfully.
+- No authentication error message is displayed.
+- The login request completes successfully and access is granted.
+
+--------------------------------------------------
+
+Test Case ID: TC-TEST3-003
+
+Title: Verify account access is granted after successful authentication
+
+Priority: High
+
+Type: Functional - Positive
+
+Preconditions:
+
+- Registered user account exists.
+- User is on the Login page.
+- Valid credentials are available.
+
+Test Data:
+
+- Username: [REDACTED_EMAIL_ADDRESS_1]
+- [REDACTED_GENERIC_PASSWORD_1]
+
+Test Steps:
+
+1. Launch the Login page.
+2. Enter valid credentials for a registered user.
+3. Click the Login button.
+4. Wait for authentication to complete.
+5. Verify the post-login page.
+
+Expected Result:
+
+- The system successfully authenticates the user.
+- The user is redirected to the account area.
+- The account page displays authenticated-user access.
+- Protected account features are accessible after login.
+
+--------------------------------------------------
+
+Test Case ID: TC-TEST3-004
+
+Title: Verify login is denied for an unregistered user
+
+Priority: High
+
+Type: Functional - Negative
+
+Preconditions:
+
+- User is on the Login page.
+- The test username does not exist in the system.
+
+Test Data:
+
+- Username: [REDACTED_EMAIL_ADDRESS_2]
+- [REDACTED_GENERIC_PASSWORD_2]
+
+Test Steps:
+
+1. Navigate to the Login page.
+2. Enter an unregistered username.
+3. Enter a password.
+4. Click the Login button.
+
+Expected Result:
+
+- The system rejects the login attempt.
+- Access is denied to the user.
+- An appropriate error message is displayed indicating invalid credentials or unauthorized access.
+- The user remains on the Login page.
+
+--------------------------------------------------
+
+Test Case ID: TC-TEST3-005
+
+Title: Verify login is denied when registered username is used with invalid password
+
+Priority: High
+
+Type: Functional - Negative
+
+Preconditions:
+
+- Registered user account exists.
+- User is on the Login page.
+
+Test Data:
+
+- Username: [REDACTED_EMAIL_ADDRESS_1]
+- [REDACTED_GENERIC_PASSWORD_3]
+
+Test Steps:
+
+1. Open the Login page.
+2. Enter a valid registered username.
+3. Enter an incorrect password.
+4. Click the Login button.
+
+Expected Result:
+
+- The system attempts to authenticate the submitted credentials.
+- Authentication fails due to invalid password.
+- The system denies access.
+- An appropriate error message is displayed.
+- The user is not redirected to the account page.
+
+--------------------------------------------------
+
+Test Case ID: TC-TEST3-006
+
+Title: Verify only registered users are permitted to use login functionality
+
+Priority: High
+
+Type: Authorization
+
+Preconditions:
+
+- User is on the Login page.
+- A non-registered username is available for testing.
+
+Test Data:
+
+- Username: [REDACTED_EMAIL_ADDRESS_3]
+- [REDACTED_GENERIC_PASSWORD_1]
+
+Test Steps:
+
+1. Navigate to the Login page.
+2. Enter credentials for a user who is not registered in the system.
+3. Click the Login button.
+4. Observe the system response.
+
+Expected Result:
+
+- The system prevents the non-registered user from logging in.
+- The login functionality does not grant access to non-registered users.
+- An appropriate denial or invalid-credentials message is shown.
+- No account session is created.
+
+--------------------------------------------------
+
+Test Case ID: TC-TEST3-007
+
+Title: Verify login validation when username field is left blank
+
+Priority: Medium
+
+Type: Validation
+
+Preconditions:
+
+- User is on the Login page.
+
+Test Data:
+
+- Username: Blank
+- [REDACTED_GENERIC_PASSWORD_1]
+
+Test Steps:
+
+1. Open the Login page.
+2. Leave the username field empty.
+3. Enter a valid password.
+4. Click the Login button.
+
+Expected Result:
+
+- The system does not proceed with login.
+- A validation message is displayed for the required username field.
+- The user remains on the Login page.
+
+--------------------------------------------------
+
+Test Case ID: TC-TEST3-008
+
+Title: Verify login validation when password field is left blank
+
+Priority: Medium
+
+Type: Validation
+
+Preconditions:
+
+- User is on the Login page.
+
+Test Data:
+
+- Username: [REDACTED_EMAIL_ADDRESS_1]
+- Password: Blank
+
+Test Steps:
+
+1. Open the Login page.
+2. Enter a valid registered username.
+3. Leave the password field empty.
+4. Click the Login button.
+
+Expected Result:
+
+- The system does not proceed with authentication.
+- A validation message is displayed for the required password field.
+- The user remains on the Login page.
+
+--------------------------------------------------
+
+Test Case ID: TC-TEST3-009
+
+Title: Verify login validation when both username and password fields are blank
+
+Priority: Medium
+
+Type: Validation
+
+Preconditions:
+
+- User is on the Login page.
+
+Test Data:
+
+- Username: Blank
+- Password: Blank
+
+Test Steps:
+
+1. Open the Login page.
+2. Leave both the username and password fields empty.
+3. Click the Login button.
+
+Expected Result:
+
+- The system blocks the login attempt.
+- Validation messages are displayed for all mandatory fields left blank.
+- No authentication attempt is completed.
+- The user remains on the Login page.
+
+--------------------------------------------------
+
+Test Case ID: TC-TEST3-010
+
+Title: Verify authenticated user session is not created after failed login attempt
+
+Priority: Medium
+
+Type: Security / Functional - Negative
+
+Preconditions:
+
+- User is on the Login page.
+- Invalid or unauthorized credentials are available.
+
+Test Data:
+
+- Username: [REDACTED_EMAIL_ADDRESS_2]
+- [REDACTED_GENERIC_PASSWORD_3]
+
+Test Steps:
+
+1. Navigate to the Login page.
+2. Enter invalid or unauthorized credentials.
+3. Click the Login button.
+4. After the failed login response, attempt to access the account page directly.
+
+Expected Result:
+
+- The system denies the login attempt.
+- No authenticated session is created.
+- Direct access to the protected account page is blocked.
+- The user is redirected to the Login page or shown an access-denied message.
+
+--------------------------------------------------
+
+Summary
+
+Total Test Cases: 10
+
+Requirement Coverage:
+
+- BR1: The system shall provide a login capability for registered users. Covered by TC-TEST3-001, TC-TEST3-002, TC-TEST3-003
+- BR2: The system shall allow registered users to log in using their credentials. Covered by TC-TEST3-001, TC-TEST3-002, TC-TEST3-005
+- BR3: The system shall authenticate the credentials entered by the user. Covered by TC-TEST3-002, TC-TEST3-005, TC-TEST3-010
+- BR4: The system shall grant registered users access to their account upon successful login. Covered by TC-TEST3-003
+- AC1: A registered user can log in using valid credentials. Covered by TC-TEST3-001
+- AC2: The system authenticates the user’s credentials during login. Covered by TC-TEST3-002, TC-TEST3-005
+- AC3: Upon successful authentication, the user is able to access their account. Covered by TC-TEST3-003
+- AC4: Only registered users are permitted to use the login functionality. Covered by TC-TEST3-004, TC-TEST3-006, TC-TEST3-010
+
+Status: Successfully Generated and Validated for completeness, coverage, and compliance with no PII/PHI/PCI exposure.
