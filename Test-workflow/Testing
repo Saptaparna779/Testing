@@ -1,0 +1,356 @@
+Story ID: TEST-2
+
+Story Title: User Registration
+
+--------------------------------------------------
+
+Test Case ID: TC-TEST2-001
+
+Title: Verify a new user can initiate the registration process
+
+Priority: High
+
+Type: Functional - Positive
+
+Preconditions:
+
+- The application is available.
+- The user is not logged in.
+- The Registration option/link is accessible from the application entry point.
+
+Test Data:
+
+- Navigation Entry Point: Application landing page
+- User State: New user
+
+Test Steps:
+
+1. Open the application landing page.
+2. Locate the registration or sign-up option.
+3. Click the registration or sign-up option.
+
+Expected Result:
+
+- The registration process is initiated successfully.
+- The system displays the user registration page or form.
+- The registration page is accessible to a new user without requiring prior authentication.
+
+--------------------------------------------------
+
+Test Case ID: TC-TEST2-002
+
+Title: Verify account creation using a valid email address
+
+Priority: High
+
+Type: Functional - Positive
+
+Preconditions:
+
+- The application is available.
+- The user is not logged in.
+- The user is on the registration page.
+- The test email is not already associated with an existing account.
+
+Test Data:
+
+- Email Address: new.user.test01@example.com
+
+Test Steps:
+
+1. Open the registration page.
+2. Enter a valid, unique email address in the email field.
+3. Complete any other mandatory registration fields if present with valid values.
+4. Submit the registration form.
+
+Expected Result:
+
+- The system accepts the valid email address.
+- The registration request is processed successfully.
+- No validation error is shown for the email field.
+- The registration proceeds toward account creation.
+
+--------------------------------------------------
+
+Test Case ID: TC-TEST2-003
+
+Title: Verify the system captures the user email during registration
+
+Priority: High
+
+Type: Functional - Data Validation
+
+Preconditions:
+
+- The application is available.
+- The user is on the registration page.
+- The email address used for testing is unique and not registered.
+
+Test Data:
+
+- Email Address: capture.email.test02@example.com
+
+Test Steps:
+
+1. Open the registration page.
+2. Enter the valid email address in the email field.
+3. Complete any other required registration fields with valid test values.
+4. Submit the registration form.
+5. Access the created user record through the application confirmation view, user profile view, or test environment data verification method.
+
+Expected Result:
+
+- The entered email address is captured by the system as part of the account creation process.
+- The created user account record reflects the same email address entered during registration.
+- No truncation, corruption, or unintended modification of the email value occurs.
+
+--------------------------------------------------
+
+Test Case ID: TC-TEST2-004
+
+Title: Verify a user account is created upon successful registration
+
+Priority: High
+
+Type: Functional - Positive
+
+Preconditions:
+
+- The application is available.
+- The user is on the registration page.
+- The test email is unique and not already registered.
+
+Test Data:
+
+- Email Address: account.create.test03@example.com
+
+Test Steps:
+
+1. Open the registration page.
+2. Enter a valid, unique email address.
+3. Complete all other mandatory registration fields with valid values.
+4. Submit the registration form.
+5. Observe the system response after submission.
+
+Expected Result:
+
+- The system successfully creates a new user account.
+- A success message, confirmation message, or transition to the next valid post-registration step is displayed.
+- The account is stored as an active/usable account per system design.
+
+--------------------------------------------------
+
+Test Case ID: TC-TEST2-005
+
+Title: Verify application access is granted after successful account creation
+
+Priority: High
+
+Type: Functional - Positive
+
+Preconditions:
+
+- A new account has been successfully created through the registration process.
+- The application is available.
+
+Test Data:
+
+- Email Address: access.after.reg.test04@example.com
+
+Test Steps:
+
+1. Register a new user account with a valid unique email address.
+2. Complete the registration process successfully.
+3. Continue to the application entry point provided after account creation, if applicable.
+4. Attempt to access the application using the newly created account/session.
+
+Expected Result:
+
+- After successful account creation, the user is granted access to the application.
+- The user can enter the application as an authenticated or recognized newly registered user according to system behavior.
+- No additional blocking error prevents access after successful registration.
+
+--------------------------------------------------
+
+Test Case ID: TC-TEST2-006
+
+Title: Verify registration fails when the email address field is left blank
+
+Priority: Medium
+
+Type: Validation - Negative
+
+Preconditions:
+
+- The application is available.
+- The user is on the registration page.
+
+Test Data:
+
+- Email Address: Blank
+
+Test Steps:
+
+1. Open the registration page.
+2. Leave the email address field empty.
+3. Complete any other mandatory fields with valid values if present.
+4. Submit the registration form.
+
+Expected Result:
+
+- The system does not allow registration to proceed.
+- A validation message indicates that the email address is required.
+- No user account is created.
+
+--------------------------------------------------
+
+Test Case ID: TC-TEST2-007
+
+Title: Verify registration fails when an invalid email format is entered
+
+Priority: High
+
+Type: Validation - Negative
+
+Preconditions:
+
+- The application is available.
+- The user is on the registration page.
+
+Test Data:
+
+- Email Address: invalid-email-format
+
+Test Steps:
+
+1. Open the registration page.
+2. Enter an invalid email format in the email field.
+3. Complete any other mandatory fields with valid values if present.
+4. Submit the registration form.
+
+Expected Result:
+
+- The system rejects the invalid email format.
+- A clear validation message is displayed indicating that the email address format is invalid.
+- No user account is created.
+
+--------------------------------------------------
+
+Test Case ID: TC-TEST2-008
+
+Title: Verify registration fails when an already registered email address is used
+
+Priority: High
+
+Type: Functional - Negative
+
+Preconditions:
+
+- The application is available.
+- The user is on the registration page.
+- An account already exists for the test email address.
+
+Test Data:
+
+- Email Address: existing.user.test05@example.com
+
+Test Steps:
+
+1. Open the registration page.
+2. Enter an email address that is already registered in the system.
+3. Complete any other mandatory fields with valid values if present.
+4. Submit the registration form.
+
+Expected Result:
+
+- The system does not create a duplicate account.
+- An appropriate error message is displayed indicating the email is already in use or already registered.
+- The existing account remains unchanged.
+
+--------------------------------------------------
+
+Test Case ID: TC-TEST2-009
+
+Title: Verify access to the application is not granted when account creation is unsuccessful
+
+Priority: High
+
+Type: Authorization - Negative
+
+Preconditions:
+
+- The application is available.
+- The user is not logged in.
+- The user is on the registration page.
+
+Test Data:
+
+- Email Address: invalid-email-format
+
+Test Steps:
+
+1. Open the registration page.
+2. Enter invalid registration data that prevents successful account creation, such as an invalid email address.
+3. Submit the registration form.
+4. Attempt to proceed into the application without a successfully created account.
+
+Expected Result:
+
+- The system blocks application access when account creation is unsuccessful.
+- The user remains outside the application or on the registration page.
+- No authenticated access or registered-user access is granted.
+
+--------------------------------------------------
+
+Test Case ID: TC-TEST2-010
+
+Title: Verify successful registration flow from initiation through account access
+
+Priority: High
+
+Type: End-to-End
+
+Preconditions:
+
+- The application is available.
+- The user is not logged in.
+- The test email address is unique and not associated with an existing account.
+
+Test Data:
+
+- Email Address: e2e.registration.test06@example.com
+
+Test Steps:
+
+1. Open the application landing page.
+2. Click the registration or sign-up option.
+3. Verify the registration page is displayed.
+4. Enter a valid, unique email address.
+5. Complete any other mandatory registration fields with valid values if present.
+6. Submit the registration form.
+7. Observe the registration success response.
+8. Continue to the application after successful account creation.
+
+Expected Result:
+
+- The user can initiate registration successfully.
+- The user can register using a valid email address.
+- The system captures the entered email address.
+- A user account is created successfully.
+- The user is granted access to the application after successful account creation.
+
+--------------------------------------------------
+
+Summary
+
+Total Test Cases: 10
+
+Requirement Coverage:
+
+- BR1: The system shall provide a user registration capability for new users. Covered by TC-TEST2-001, TC-TEST2-010
+- BR2: The system shall allow a new user to create an account using an email address. Covered by TC-TEST2-002, TC-TEST2-007, TC-TEST2-008, TC-TEST2-010
+- BR3: The system shall capture the user’s email address as part of the account creation process. Covered by TC-TEST2-003, TC-TEST2-010
+- BR4: The system shall create a user account that enables access to the application. Covered by TC-TEST2-004, TC-TEST2-005, TC-TEST2-010
+- BR5: The system shall support access to the application only after successful account creation. Covered by TC-TEST2-005, TC-TEST2-009, TC-TEST2-010
+
+Status: Successfully Generated and Validated for completeness, coverage, and compliance (test data uses synthetic non-PII values only)
